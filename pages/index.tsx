@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { Inter } from '@next/font/google';
+import BeerCard from '@/components/BeerCard/BeerCard';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -14,7 +15,7 @@ const Home = () => {
       </Head>
       <main>
         <div>
-          <p>Punk APi</p>
+          <BeerCard />
         </div>
       </main>
     </>
