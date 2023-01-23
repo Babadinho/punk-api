@@ -7,7 +7,7 @@ export const BeerWrapper = styled.div`
 export const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 2.5rem;
+  grid-gap: 2rem;
   grid-row: 1 / 3;
   border-top: 1px solid #e4e3e3;
   padding-top: 1.5rem;

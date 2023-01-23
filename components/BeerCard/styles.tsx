@@ -25,20 +25,28 @@ export const Image = styled.img`
   background-color: #ffffff;
   object-fit: contain;
   width: 100%;
-  max-height: 200px;
+  max-height: 160px;
+`;
+
+export const Link = styled.a`
+  text-decoration: none;
+  cursor: pointer;
 `;
 
 export const Title = styled.span`
-  color: '#494848';
-  font-size: '0.7rem';
-  text-transform: uppercase;
+  color: #393838;
+  font-size: 0.95rem;
   font-weight: bold;
   word-wrap: break-word;
   max-width: 70%;
-  margin: 1.2rem 0 1rem 0;
+  margin: 1rem 0 0rem 0;
+
+  &:hover {
+    color: #4e4b4b;
+  }
 `;
 
 export const Description = styled.span`
-  color: '#858282';
-  font-size: '0.5rem';
+  color: #504d4d;
+  font-size: 0.9rem;
 `;

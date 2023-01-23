@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Beers from '@/layouts/Beers/Beers';
 import BeerData from '@/interfaces/BeerData';
+import { Container } from '@/styles/index';
 
 const BeerEndPoint = 'https://api.punkapi.com/v2/beers';
 
@@ -25,9 +26,9 @@ const Home = (props: { beers: BeerData[] }) => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <main>
-        <div>
+        <Container>
           <Beers beers={beers} />
-        </div>
+        </Container>
       </main>
     </>
   );
