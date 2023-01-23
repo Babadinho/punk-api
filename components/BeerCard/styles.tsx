@@ -5,7 +5,8 @@ export const Container = styled.div`
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  width: 300px;
+  width: 250px;
+  height: 350px;
   background-color: #ffffff;
   padding: 1rem;
   margin-bottom: 0.1rem;
@@ -14,24 +15,22 @@ export const Container = styled.div`
 
 export const ImageWrapper = styled.div`
   display: flex;
-  flex-grow: 1;
-  flex-shrink: 0;
   justify-content: center;
   align-items: center;
-  background-color: #f0e9e9;
   padding: 1rem;
   width: 100%;
 `;
 
 export const Image = styled.img`
   background-color: #ffffff;
+  object-fit: contain;
   width: 100%;
-  height: auto;
+  max-height: 200px;
 `;
 
 export const Title = styled.span`
   color: '#494848';
-  font-size: '0.95rem';
+  font-size: '0.7rem';
   text-transform: uppercase;
   font-weight: bold;
   word-wrap: break-word;
@@ -41,5 +40,5 @@ export const Title = styled.span`
 
 export const Description = styled.span`
   color: '#858282';
-  font-size: '0.9rem';
+  font-size: '0.5rem';
 `;

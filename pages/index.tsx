@@ -1,10 +1,21 @@
 import Head from 'next/head';
-import { Inter } from '@next/font/google';
-import BeerCard from '@/components/BeerCard/BeerCard';
+import Beers from '@/layouts/Beers/Beers';
+import BeerData from '@/interfaces/BeerData';
 
-const inter = Inter({ subsets: ['latin'] });
+const BeerEndPoint = 'https://api.punkapi.com/v2/beers';
 
-const Home = () => {
+export const getServerSideProps = async () => {
+  try {
+    const res = await fetch(BeerEndPoint);
+    const data = await res.json();
+    return { props: { beers: data } };
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const Home = (props: { beers: BeerData[] }) => {
+  const { beers } = props;
   return (
     <>
       <Head>
@@ -15,7 +26,7 @@ const Home = () => {
       </Head>
       <main>
         <div>
-          <BeerCard />
+          <Beers beers={beers} />
         </div>
       </main>
     </>
