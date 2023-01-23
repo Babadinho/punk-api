@@ -5,7 +5,8 @@ export const Container = styled.div`
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  width: 250px;
+  border-radius: 5px;
+  width: 270px;
   height: 350px;
   background-color: #ffffff;
   padding: 1rem;

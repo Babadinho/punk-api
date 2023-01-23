@@ -2,6 +2,7 @@ import React from 'react';
 import BeerData from '@/interfaces/BeerData';
 import BeerCard from '@/components/BeerCard/BeerCard';
 import { BeerWrapper, Container } from './styles';
+import PageButton from '@/components/PageButton/PageButton';
 
 const Beers = ({ beers }: { beers: BeerData[] }) => {
   return (
@@ -18,6 +19,7 @@ const Beers = ({ beers }: { beers: BeerData[] }) => {
           );
         })}
       </Container>
+      <PageButton />
     </BeerWrapper>
   );
 };

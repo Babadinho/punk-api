@@ -9,13 +9,13 @@ import {
 } from './styles';
 import BeerData from '@/interfaces/BeerData';
 
-const BeerCard = ({ name, image_url, description }: BeerData) => {
+const BeerCard = ({ id, name, image_url, description }: BeerData) => {
   return (
     <Container>
       <ImageWrapper>
         <Image src={image_url} alt={name} />
       </ImageWrapper>
-      <Link>
+      <Link href={`https://api.punkapi.com/v2/beers/${id}`}>
         <Title>{name}</Title>
       </Link>
       <Description>{description.substring(0, 80)}..</Description>
