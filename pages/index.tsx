@@ -1,9 +1,11 @@
 import Head from 'next/head';
 import Beers from '@/layouts/Beers/Beers';
 import BeerData from '@/interfaces/BeerData';
-import { Container } from '@/styles/index';
+import { Container, ActionWrapper } from '@/styles/index';
 import Router from 'next/router';
 import Header from '@/layouts/Header/Header';
+import Search from '@/components/Search/Search';
+import Filter from '@/components/Filter/Filter';
 
 const BeerEndPoint = 'https://api.punkapi.com/v2/beers';
 
@@ -59,6 +61,11 @@ const Home = (props: { beers: BeerData[]; page: number; per_page: number }) => {
       <main>
         <Container>
           <Header />
+          <ActionWrapper>
+            <Search />
+            <Filter />
+          </ActionWrapper>
+
           <Beers
             beers={beers}
             handleNextPage={handleNextPage}
