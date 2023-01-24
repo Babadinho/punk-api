@@ -46,6 +46,10 @@ export const NextPageBtn = styled.a`
   transition-duration: 0.5s;
   align-self: flex-end;
 
+  &.nextPage {
+    visibility: hidden;
+  }
+
   &:hover {
     background-color: #212121;
   }

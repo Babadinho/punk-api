@@ -1,10 +1,10 @@
 export default interface BeerData {
   id?: number;
   name: string;
-  tagline: string;
+  tagline?: string;
   image_url: string;
   description: string;
-  ingredients: Ingredients;
+  ingredients?: Ingredients;
 }
 
 interface Ingredients {

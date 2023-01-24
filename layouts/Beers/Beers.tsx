@@ -4,7 +4,13 @@ import BeerCard from '@/components/BeerCard/BeerCard';
 import { BeerWrapper, Container } from './styles';
 import PageButton from '@/components/PageButton/PageButton';
 
-const Beers = ({ beers, handleNextPage, handlePreviousPage, page }: any) => {
+const Beers = ({
+  beers,
+  handleNextPage,
+  handlePreviousPage,
+  page,
+  search,
+}: any) => {
   return (
     <BeerWrapper>
       <Container>
@@ -22,6 +28,7 @@ const Beers = ({ beers, handleNextPage, handlePreviousPage, page }: any) => {
       </Container>
       <PageButton
         page={page}
+        search={search}
         handleNextPage={handleNextPage}
         handlePreviousPage={handlePreviousPage}
       />

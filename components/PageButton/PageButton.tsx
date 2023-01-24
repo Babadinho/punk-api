@@ -5,22 +5,29 @@ interface PageButtonProps {
   handleNextPage: () => void;
   handlePreviousPage: () => void;
   page: number;
+  search: string;
 }
 
 const PageButton = ({
   page,
+  search,
   handleNextPage,
   handlePreviousPage,
 }: PageButtonProps) => {
   return (
     <Container>
       <PrevPageBtn
-        className={page === 1 ? 'prevPage' : ''}
+        className={search || page === 1 ? 'prevPage' : ''}
         onClick={handlePreviousPage}
       >
         Previous Page
       </PrevPageBtn>
-      <NextPageBtn onClick={handleNextPage}>Next Page</NextPageBtn>
+      <NextPageBtn
+        className={search ? 'nextPage' : ''}
+        onClick={handleNextPage}
+      >
+        Next Page
+      </NextPageBtn>
     </Container>
   );
 };
