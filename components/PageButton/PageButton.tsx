@@ -1,11 +1,26 @@
-import { Container, PageBtn } from './styles';
+import { Container, PrevPageBtn, NextPageBtn } from './styles';
 import React from 'react';
 
-const PageButton = () => {
+interface PageButtonProps {
+  handleNextPage: () => void;
+  handlePreviousPage: () => void;
+  page: number;
+}
+
+const PageButton = ({
+  page,
+  handleNextPage,
+  handlePreviousPage,
+}: PageButtonProps) => {
   return (
     <Container>
-      <PageBtn>Previous Page</PageBtn>
-      <PageBtn>Next Page</PageBtn>
+      <PrevPageBtn
+        className={page === 1 ? 'prevPage' : ''}
+        onClick={handlePreviousPage}
+      >
+        Previous Page
+      </PrevPageBtn>
+      <NextPageBtn onClick={handleNextPage}>Next Page</NextPageBtn>
     </Container>
   );
 };

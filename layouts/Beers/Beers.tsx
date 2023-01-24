@@ -4,11 +4,11 @@ import BeerCard from '@/components/BeerCard/BeerCard';
 import { BeerWrapper, Container } from './styles';
 import PageButton from '@/components/PageButton/PageButton';
 
-const Beers = ({ beers }: { beers: BeerData[] }) => {
+const Beers = ({ beers, handleNextPage, handlePreviousPage, page }: any) => {
   return (
     <BeerWrapper>
       <Container>
-        {beers.map((beer, i) => {
+        {beers.map((beer: BeerData) => {
           return (
             <BeerCard
               key={beer.id}
@@ -19,7 +19,11 @@ const Beers = ({ beers }: { beers: BeerData[] }) => {
           );
         })}
       </Container>
-      <PageButton />
+      <PageButton
+        page={page}
+        handleNextPage={handleNextPage}
+        handlePreviousPage={handlePreviousPage}
+      />
     </BeerWrapper>
   );
 };

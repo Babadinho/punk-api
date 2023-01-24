@@ -2,21 +2,52 @@ import Head from 'next/head';
 import Beers from '@/layouts/Beers/Beers';
 import BeerData from '@/interfaces/BeerData';
 import { Container } from '@/styles/index';
+import Router from 'next/router';
+import Header from '@/layouts/Header/Header';
 
 const BeerEndPoint = 'https://api.punkapi.com/v2/beers';
 
-export const getServerSideProps = async () => {
+export const getServerSideProps = async (context: { query: any }) => {
+  const { query } = context;
+  const { page = 1, per_page = 16 } = query;
   try {
-    const res = await fetch(BeerEndPoint);
+    const res = await fetch(
+      `${BeerEndPoint}?page=${page}&per_page=${per_page}`
+    );
     const data = await res.json();
-    return { props: { beers: data } };
+    return {
+      props: {
+        beers: data,
+        page: parseInt(page),
+        per_page: parseInt(per_page),
+      },
+    };
   } catch (error) {
     console.error(error);
   }
 };
 
-const Home = (props: { beers: BeerData[] }) => {
-  const { beers } = props;
+const Home = (props: { beers: BeerData[]; page: number; per_page: number }) => {
+  const { beers, page, per_page } = props;
+
+  const handleNextPage = () => {
+    Router.push({
+      pathname: '/',
+      query: { page: page + 1, per_page },
+    });
+  };
+
+  const handlePreviousPage = () => {
+    if (page === 2) {
+      Router.push('/');
+    } else if (page > 1) {
+      Router.push({
+        pathname: '/',
+        query: { page: page - 1, per_page },
+      });
+    }
+  };
+
   return (
     <>
       <Head>
@@ -27,7 +58,13 @@ const Home = (props: { beers: BeerData[] }) => {
       </Head>
       <main>
         <Container>
-          <Beers beers={beers} />
+          <Header />
+          <Beers
+            beers={beers}
+            handleNextPage={handleNextPage}
+            handlePreviousPage={handlePreviousPage}
+            page={page}
+          />
         </Container>
       </main>
     </>
