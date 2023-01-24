@@ -16,7 +16,7 @@ import {
   IngredientWrapper,
   IngredientListWrapper,
   IngredientList,
-} from './styles';
+} from '../../styles/beer/styles';
 
 export const getServerSideProps = async (context: { query: any }) => {
   const { id } = context.query;
@@ -50,7 +50,7 @@ const beer = (props: { beer: BeerData }) => {
       <Heading>{beer.name}</Heading>
       <Container>
         <ImageWrapper>
-          <Image src={beer.image_url}></Image>
+          <Image src={beer.image_url} alt={beer.name}></Image>
         </ImageWrapper>
         <ContentWrapper>
           <Title>{beer.tagline}</Title>
