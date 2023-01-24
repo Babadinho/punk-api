@@ -8,6 +8,12 @@ export const Container = styled.div`
   height: auto;
   margin: 3rem 15rem 10rem 15rem;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+  @media (max-width: 850px) {
+    flex-direction: column;
+    margin: 1.5rem 1rem 10rem 1rem;
+    padding: 2rem 0 3rem 0;
+  }
 `;
 
 export const Heading = styled.h1`
@@ -18,6 +24,10 @@ export const Heading = styled.h1`
   color: #393838;
   letter-spacing: 0.04em;
   text-transform: capitalize;
+
+  @media (max-width: 850px) {
+    font-size: 2.4rem;
+  }
 `;
 
 export const ImageWrapper = styled.div`
@@ -26,6 +36,13 @@ export const ImageWrapper = styled.div`
   align-items: center;
   width: 100%;
   border-right: 3px solid #f0e9e9;
+  padding: 1rem 0 1rem 0;
+
+  @media (max-width: 850px) {
+    border-right: none;
+    border-bottom: 3px solid #f0e9e9;
+    padding-bottom: 1rem;
+  }
 `;
 
 export const Image = styled.img`
@@ -33,22 +50,33 @@ export const Image = styled.img`
   object-fit: contain;
   width: 100%;
   max-height: 550px;
+
+  @media (max-width: 850px) {
+    max-height: 400px;
+  }
 `;
 
 export const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 1rem 0 2rem 1rem;
+  padding: 1rem 1rem 2rem 1rem;
   width: 100%;
+
+  @media (max-width: 850px) {
+    padding: 1rem 1rem;
+  }
 `;
 
 export const Title = styled.h1`
   color: #393838;
   font-size: 1.7rem;
   font-weight: bold;
-  word-wrap: break-word;
   margin: 1rem 0 1.5rem 0;
   letter-spacing: 0.01em;
+
+  @media (max-width: 850px) {
+    font-size: 1.5rem;
+  }
 `;
 
 export const Description = styled.span`

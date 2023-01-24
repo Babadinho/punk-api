@@ -12,6 +12,10 @@ export const Container = styled.div`
   padding: 1rem;
   margin-bottom: 0.1rem;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+  @media (max-width: 850px) {
+    width: 100%;
+  }
 `;
 
 export const ImageWrapper = styled.div`
@@ -39,8 +43,7 @@ export const Title = styled.span`
   font-size: 0.95rem;
   font-weight: bold;
   word-wrap: break-word;
-  max-width: 70%;
-  margin: 1rem 0 0rem 0;
+  letter-spacing: 0.01em;
 
   &:hover {
     color: #4e4b4b;
@@ -49,5 +52,12 @@ export const Title = styled.span`
 
 export const Description = styled.span`
   color: #504d4d;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  line-height: 1.3;
+  letter-spacing: 0.03em;
+
+  @media (max-width: 500px) {
+    font-size: 0.9rem;
+    line-height: 1.2;
+  }
 `;

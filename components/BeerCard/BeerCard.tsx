@@ -13,8 +13,11 @@ const BeerCard = ({ id, name, image_url, description }: BeerData) => {
   return (
     <Container>
       <ImageWrapper>
-        <Image src={image_url} alt={name} />
+        <Link href={`/beer/${id}`}>
+          <Image src={image_url} alt={name} />
+        </Link>
       </ImageWrapper>
+
       <Link href={`/beer/${id}`}>
         <Title>{name}</Title>
       </Link>

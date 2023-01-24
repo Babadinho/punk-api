@@ -12,6 +12,7 @@ export const Heading = styled.h1`
   color: #393838;
   letter-spacing: 0.07em;
   text-transform: uppercase;
+  white-space: nowrap;
 `;
 
 export const Link = styled.a`

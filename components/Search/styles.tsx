@@ -4,6 +4,10 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 850px) {
+    margin: 1rem 0 1rem 0;
+  }
 `;
 
 export const Searchbox = styled.input`

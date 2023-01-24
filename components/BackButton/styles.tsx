@@ -11,4 +11,8 @@ export const Container = styled.span`
   &:hover {
     color: #212121;
   }
+
+  @media (max-width: 850px) {
+    margin: 1rem 0 0 1rem;
+  }
 `;

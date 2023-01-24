@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { Select, FilterWarpper } from './styles';
+import { Filter, FilterWarpper } from './styles';
 
 const ProductsFilter = () => {
   return (
     <FilterWarpper>
-      <Select>
+      <Filter>
         <option value='brewed_before'>Brewed - Newest</option>
         <option value='brewed_after'>Brewed - Oldest</option>
-      </Select>
+      </Filter>
     </FilterWarpper>
   );
 };
