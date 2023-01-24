@@ -36,7 +36,7 @@ export const getServerSideProps = async (context: { query: any }) => {
 const beer = (props: { beer: BeerData }) => {
   const { beer } = props;
   const ingredients = beer.ingredients;
-  const ingredientKeys = Object.keys(ingredients);
+  const ingredientKeys = ingredients && Object.keys(ingredients);
 
   return (
     <>
@@ -58,31 +58,32 @@ const beer = (props: { beer: BeerData }) => {
 
           <IngredientsWrapper>
             <IngredientsHeading>Ingredients</IngredientsHeading>
-            {ingredientKeys.map((key, i) => {
-              const ingredient = ingredients[key];
-              if (Array.isArray(ingredient)) {
+            {ingredientKeys &&
+              ingredientKeys.map((key, i) => {
+                const ingredient = ingredients[key];
+                if (Array.isArray(ingredient)) {
+                  return (
+                    <IngredientWrapper key={i}>
+                      <IngredientName>{key}</IngredientName>
+                      <IngredientListWrapper>
+                        {ingredient.map((item, i) => (
+                          <IngredientList key={i}>
+                            {item.name} - {item.amount.value} {item.amount.unit}
+                          </IngredientList>
+                        ))}
+                      </IngredientListWrapper>
+                    </IngredientWrapper>
+                  );
+                }
                 return (
                   <IngredientWrapper key={i}>
                     <IngredientName>{key}</IngredientName>
                     <IngredientListWrapper>
-                      {ingredient.map((item, i) => (
-                        <IngredientList key={i}>
-                          {item.name} - {item.amount.value} {item.amount.unit}
-                        </IngredientList>
-                      ))}
+                      <IngredientList>{ingredient}</IngredientList>
                     </IngredientListWrapper>
                   </IngredientWrapper>
                 );
-              }
-              return (
-                <IngredientWrapper key={i}>
-                  <IngredientName>{key}</IngredientName>
-                  <IngredientListWrapper>
-                    <IngredientList>{ingredient}</IngredientList>
-                  </IngredientListWrapper>
-                </IngredientWrapper>
-              );
-            })}
+              })}
           </IngredientsWrapper>
         </ContentWrapper>
       </Container>
