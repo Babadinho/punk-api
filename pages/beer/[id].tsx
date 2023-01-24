@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import React from 'react';
 import BeerData from '@/interfaces/BeerData';
+import BackButton from '@/components/BackButton/BackButton';
 import {
   Container,
   Heading,
@@ -45,6 +46,7 @@ const beer = (props: { beer: BeerData }) => {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
+      <BackButton />
       <Heading>{beer.name}</Heading>
       <Container>
         <ImageWrapper>

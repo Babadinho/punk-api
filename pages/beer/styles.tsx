@@ -11,7 +11,7 @@ export const Container = styled.div`
 `;
 
 export const Heading = styled.h1`
-  margin-top: 3rem;
+  text-align: center;
   text-align: center;
   font-size: 3rem;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
