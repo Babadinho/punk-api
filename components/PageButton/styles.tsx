@@ -8,7 +8,7 @@ export const Container = styled.div`
 `;
 
 export const PrevPageBtn = styled.a`
-  background-color: #3d84a0;
+  background-color: #393838;
   padding: 0.7rem 1.5rem;
   font-size: 11px;
   font-weight: 600;
@@ -27,12 +27,12 @@ export const PrevPageBtn = styled.a`
   }
 
   &:hover {
-    background-color: #226c89;
+    background-color: #212121;
   }
 `;
 
 export const NextPageBtn = styled.a`
-  background-color: #3d84a0;
+  background-color: #393838;
   padding: 0.7rem 1.5rem;
   font-size: 11px;
   font-weight: 600;
@@ -47,6 +47,6 @@ export const NextPageBtn = styled.a`
   align-self: flex-end;
 
   &:hover {
-    background-color: #226c89;
+    background-color: #212121;
   }
 `;

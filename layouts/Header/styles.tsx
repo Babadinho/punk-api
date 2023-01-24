@@ -9,7 +9,7 @@ export const Container = styled.div`
 export const Heading = styled.h1`
   font-size: 3rem;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  color: #226c89;
+  color: #393838;
   letter-spacing: 0.07em;
   text-transform: uppercase;
 `;

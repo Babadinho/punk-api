@@ -15,7 +15,7 @@ const BeerCard = ({ id, name, image_url, description }: BeerData) => {
       <ImageWrapper>
         <Image src={image_url} alt={name} />
       </ImageWrapper>
-      <Link href={`https://api.punkapi.com/v2/beers/${id}`}>
+      <Link href={`/beer/${id}`}>
         <Title>{name}</Title>
       </Link>
       <Description>{description.substring(0, 80)}..</Description>

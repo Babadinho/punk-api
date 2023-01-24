@@ -11,6 +11,7 @@ const Beers = ({ beers, handleNextPage, handlePreviousPage, page }: any) => {
         {beers.map((beer: BeerData) => {
           return (
             <BeerCard
+              id={beer.id}
               key={beer.id}
               name={beer.name}
               image_url={beer.image_url}
