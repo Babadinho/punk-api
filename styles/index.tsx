@@ -14,7 +14,7 @@ export const ActionWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  @media (max-width: 850px) {
+  @media (max-width: 1060px) {
     flex-direction: column;
   }
 `;
