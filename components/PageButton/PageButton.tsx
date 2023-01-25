@@ -17,7 +17,7 @@ const PageButton = ({
   return (
     <Container>
       <PrevPageBtn
-        className={beers.length < 16 || page === 1 ? 'prevPage' : ''}
+        className={page === 1 ? 'prevPage' : ''}
         onClick={handlePreviousPage}
       >
         Previous Page
