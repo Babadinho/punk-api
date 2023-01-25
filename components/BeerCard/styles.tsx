@@ -63,6 +63,20 @@ export const Description = styled.span`
   }
 `;
 
+export const BrewedDateWrapper = styled.div`
+  background-color: #f4f5f9;
+  padding: 0.3rem;
+  border-radius: 5px;
+  font-size: 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  text-transform: capitalize;
+`;
+
 export const AbvWrapper = styled.div`
   background-color: #f4f5f9;
   padding: 0.3rem;
