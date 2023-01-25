@@ -16,7 +16,13 @@ const Filter = ({ handleFilter }: any) => {
     abv_lt: '',
   });
 
-  const { brewed_before, brewed_after, abv_gt, abv_lt } = filter;
+  const [inputValue, setInputValue] = useState<FilterData>({
+    brewed_before: '',
+    brewed_after: '',
+  });
+
+  const { abv_gt, abv_lt } = filter;
+  const { brewed_before, brewed_after } = inputValue;
 
   // funtion to format date to the format (mm-yy) required by the API
   const formatDate = (date: string) => {
@@ -26,11 +32,15 @@ const Filter = ({ handleFilter }: any) => {
 
   const handleChange = (name: string) => (e: { target: { value: string } }) => {
     // check if name = date then format date using function above before setting in state
-    const value =
-      name === 'brewed_before' || name === 'brewed_after'
-        ? formatDate(e.target.value)
-        : e.target.value;
-    setFilter({ ...filter, [name]: value });
+    if (name === 'brewed_before') {
+      setInputValue({ ...inputValue, brewed_before: e.target.value });
+      setFilter({ ...filter, [name]: formatDate(e.target.value) });
+    } else if (name === 'brewed_after') {
+      setInputValue({ ...inputValue, brewed_after: e.target.value });
+      setFilter({ ...filter, [name]: formatDate(e.target.value) });
+    } else {
+      setFilter({ ...filter, [name]: e.target.value });
+    }
   };
 
   return (
