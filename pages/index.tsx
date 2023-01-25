@@ -10,30 +10,11 @@ import { FilterData } from '@/components/types/FilterData';
 
 const BeerEndPoint = 'https://api.punkapi.com/v2/beers';
 
-const handleSearch = (searchTerm: string) => {
-  Router.push({
-    pathname: '/',
-    query: { search: searchTerm },
-  });
-};
-
-const handleFilter = (filterOption: FilterData) => {
-  const filterEntries = Object.entries(filterOption);
-  const filterQuery = filterEntries
-    .filter(([key, value]) => value)
-    .map(([key, value]) => `${key}=${value}`)
-    .join('&');
-  Router.push({
-    pathname: '/',
-    query: { filter: filterQuery },
-  });
-};
-
 export const getServerSideProps = async (context: { query: any }) => {
   const { query } = context;
   const { page = 1, per_page = 16 } = query;
   let search = query.search || null;
-  let filter = query.filter;
+  let filter = query.filter || null;
   try {
     let url = `${BeerEndPoint}?page=${page}&per_page=${per_page}`;
 
@@ -53,6 +34,7 @@ export const getServerSideProps = async (context: { query: any }) => {
         page: parseInt(page),
         per_page: parseInt(per_page),
         search,
+        filter,
       },
     };
   } catch (error) {
@@ -60,25 +42,46 @@ export const getServerSideProps = async (context: { query: any }) => {
   }
 };
 
-const Home = (props: { beers: BeerData[]; page: number; per_page: number }) => {
-  const { beers, page, per_page } = props;
+const Home = (props: {
+  beers: BeerData[];
+  page: number;
+  per_page: number;
+  search: string;
+  filter: string;
+}) => {
+  const { beers, page, per_page, search, filter } = props;
+
+  const handleSearch = (searchTerm: string) => {
+    Router.push({
+      pathname: '/',
+      query: { filter: filter, search: searchTerm, page, per_page },
+    });
+  };
+
+  const handleFilter = (filterOption: FilterData) => {
+    const filterEntries = Object.entries(filterOption);
+    const filterQuery = filterEntries
+      .filter(([key, value]) => value)
+      .map(([key, value]) => `${key}=${value}`)
+      .join('&');
+    Router.push({
+      pathname: '/',
+      query: { filter: filterQuery, search, page, per_page },
+    });
+  };
 
   const handleNextPage = () => {
     Router.push({
       pathname: '/',
-      query: { page: page + 1, per_page },
+      query: { filter, search, page: page + 1, per_page },
     });
   };
 
   const handlePreviousPage = () => {
-    if (page === 2) {
-      Router.push('/');
-    } else if (page > 1) {
-      Router.push({
-        pathname: '/',
-        query: { page: page - 1, per_page },
-      });
-    }
+    Router.push({
+      pathname: '/',
+      query: { filter, search, page: page - 1, per_page },
+    });
   };
 
   return (
@@ -93,7 +96,7 @@ const Home = (props: { beers: BeerData[]; page: number; per_page: number }) => {
         <Container>
           <Header />
           <ActionWrapper>
-            <Search handleSearch={handleSearch} />
+            <Search handleSearch={handleSearch} search={search} />
             <Filter handleFilter={handleFilter} />
           </ActionWrapper>
 
