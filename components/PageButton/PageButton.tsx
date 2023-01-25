@@ -5,25 +5,25 @@ interface PageButtonProps {
   handleNextPage: () => void;
   handlePreviousPage: () => void;
   page: number;
-  search: string;
+  beers: [];
 }
 
 const PageButton = ({
   page,
-  search,
+  beers,
   handleNextPage,
   handlePreviousPage,
 }: PageButtonProps) => {
   return (
     <Container>
       <PrevPageBtn
-        className={search || page === 1 ? 'prevPage' : ''}
+        className={beers.length < 16 || page === 1 ? 'prevPage' : ''}
         onClick={handlePreviousPage}
       >
         Previous Page
       </PrevPageBtn>
       <NextPageBtn
-        className={search ? 'nextPage' : ''}
+        className={beers.length < 16 ? 'nextPage' : ''}
         onClick={handleNextPage}
       >
         Next Page

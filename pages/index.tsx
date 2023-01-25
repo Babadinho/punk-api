@@ -6,6 +6,7 @@ import Router from 'next/router';
 import Header from '@/layouts/Header/Header';
 import Search from '@/components/Search/Search';
 import Filter from '@/components/Filter/Filter';
+import { FilterData } from '@/components/types/FilterData';
 
 const BeerEndPoint = 'https://api.punkapi.com/v2/beers';
 
@@ -16,14 +17,33 @@ const handleSearch = (searchTerm: string) => {
   });
 };
 
+const handleFilter = (filterOption: FilterData) => {
+  const filterEntries = Object.entries(filterOption);
+  const filterQuery = filterEntries
+    .filter(([key, value]) => value)
+    .map(([key, value]) => `${key}=${value}`)
+    .join('&');
+  Router.push({
+    pathname: '/',
+    query: { filter: filterQuery },
+  });
+};
+
 export const getServerSideProps = async (context: { query: any }) => {
   const { query } = context;
   const { page = 1, per_page = 16 } = query;
   let search = query.search || null;
+  let filter = query.filter;
   try {
     let url = `${BeerEndPoint}?page=${page}&per_page=${per_page}`;
+
+    // append search term to url if user searches for beer
     if (search) {
       url += `&beer_name=${search}`;
+    }
+    // append filter otions to url if provided by user
+    if (filter) {
+      url += `&${filter}`;
     }
     const res = await fetch(url);
     const data = await res.json();
@@ -40,13 +60,8 @@ export const getServerSideProps = async (context: { query: any }) => {
   }
 };
 
-const Home = (props: {
-  beers: BeerData[];
-  page: number;
-  per_page: number;
-  search: string;
-}) => {
-  const { beers, page, per_page, search } = props;
+const Home = (props: { beers: BeerData[]; page: number; per_page: number }) => {
+  const { beers, page, per_page } = props;
 
   const handleNextPage = () => {
     Router.push({
@@ -79,7 +94,7 @@ const Home = (props: {
           <Header />
           <ActionWrapper>
             <Search handleSearch={handleSearch} />
-            <Filter />
+            <Filter handleFilter={handleFilter} />
           </ActionWrapper>
 
           <Beers
@@ -87,7 +102,6 @@ const Home = (props: {
             handleNextPage={handleNextPage}
             handlePreviousPage={handlePreviousPage}
             page={page}
-            search={search}
           />
         </Container>
       </main>

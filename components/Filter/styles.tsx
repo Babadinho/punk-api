@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  background-color: #f1eded;
+  background-color: #ececec;
   padding: 1.5rem 1rem;
   width: 420px;
   display: flex;
@@ -14,6 +14,7 @@ export const Container = styled.div`
   @media (max-width: 850px) {
     width: 100%;
     margin-bottom: 1rem;
+    padding: 1.5rem 0.7rem;
   }
 `;
 
@@ -24,7 +25,7 @@ export const InputWrapper = styled.div`
   font-size: 0.9rem;
 `;
 
-export const InputNumber = styled.input`
+export const InputText = styled.input`
   background-color: #ffffff;
   padding: 0.2rem;
   width: 45px;
@@ -36,6 +37,10 @@ export const InputDate = styled.input`
   padding: 0.1rem;
   width: 70px;
   border: none;
+
+  @media (max-width: 850px) {
+    width: 60px;
+  }
 `;
 
 export const FilterButton = styled.a`
