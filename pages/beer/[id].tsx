@@ -17,6 +17,7 @@ import {
   IngredientListWrapper,
   IngredientList,
 } from '../../styles/beer/styles';
+import { AbvWrapper, BrewedDateWrapper } from '@/components/BeerCard/styles';
 
 export const getServerSideProps = async (context: { query: any }) => {
   const { id } = context.query;
@@ -53,6 +54,8 @@ const beer = (props: { beer: BeerData }) => {
           <Image src={beer.image_url} alt={beer.name}></Image>
         </ImageWrapper>
         <ContentWrapper>
+          <BrewedDateWrapper>Brewed : {beer.first_brewed}</BrewedDateWrapper>
+          <AbvWrapper>abv : {beer.abv}</AbvWrapper>
           <Title>{beer.tagline}</Title>
           <Description>{beer.description}</Description>
 

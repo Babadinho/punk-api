@@ -57,6 +57,7 @@ export const Image = styled.img`
 `;
 
 export const ContentWrapper = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   padding: 1rem 1rem 2rem 1rem;
@@ -71,7 +72,7 @@ export const Title = styled.h1`
   color: #393838;
   font-size: 1.7rem;
   font-weight: bold;
-  margin: 1rem 0 1.5rem 0;
+  margin: 1.7rem 0 1.5rem 0;
   letter-spacing: 0.01em;
 
   @media (max-width: 850px) {

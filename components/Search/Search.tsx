@@ -7,7 +7,7 @@ const Search = ({ handleSearch, search }: any) => {
   return (
     <Container>
       <Searchbox
-        placeholder={search}
+        placeholder={!search ? 'search' : search}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
       <SearchIconWrapper
