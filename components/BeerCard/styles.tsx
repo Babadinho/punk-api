@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -60,4 +61,18 @@ export const Description = styled.span`
     font-size: 0.9rem;
     line-height: 1.2;
   }
+`;
+
+export const AbvWrapper = styled.div`
+  background-color: #f4f5f9;
+  padding: 0.3rem;
+  border-radius: 5px;
+  font-size: 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  text-transform: uppercase;
 `;

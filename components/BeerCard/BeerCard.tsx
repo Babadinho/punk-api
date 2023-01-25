@@ -6,10 +6,11 @@ import {
   Link,
   Title,
   Description,
+  AbvWrapper,
 } from './styles';
 import BeerData from '@/interfaces/BeerData';
 
-const BeerCard = ({ id, name, image_url, description }: BeerData) => {
+const BeerCard = ({ id, name, image_url, description, abv }: BeerData) => {
   return (
     <Container>
       <ImageWrapper>
@@ -22,6 +23,7 @@ const BeerCard = ({ id, name, image_url, description }: BeerData) => {
         <Title>{name}</Title>
       </Link>
       <Description>{description.substring(0, 80)}..</Description>
+      <AbvWrapper>abv : {abv}</AbvWrapper>
     </Container>
   );
 };

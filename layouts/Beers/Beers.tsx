@@ -17,6 +17,7 @@ const Beers = ({ beers, handleNextPage, handlePreviousPage, page }: any) => {
                 name={beer.name}
                 image_url={beer.image_url}
                 description={beer.description}
+                abv={beer.abv}
               />
             );
           })}

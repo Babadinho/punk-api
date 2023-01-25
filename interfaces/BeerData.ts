@@ -5,6 +5,7 @@ export default interface BeerData {
   image_url: string;
   description: string;
   ingredients?: Ingredients;
+  abv: string;
 }
 
 interface Ingredients {
