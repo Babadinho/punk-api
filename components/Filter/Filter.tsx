@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FilterData } from '../types/FilterData';
+import { FilterData } from '@/types/FilterData';
 import {
   Container,
   InputWrapper,

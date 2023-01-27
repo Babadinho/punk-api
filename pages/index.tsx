@@ -6,7 +6,7 @@ import Router from 'next/router';
 import Header from '@/layouts/Header/Header';
 import Search from '@/components/Search/Search';
 import Filter from '@/components/Filter/Filter';
-import { FilterData } from '@/components/types/FilterData';
+import { FilterData } from '@/types/FilterData';
 
 const BeerEndPoint = 'https://api.punkapi.com/v2/beers';
 
