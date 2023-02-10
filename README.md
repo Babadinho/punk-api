@@ -1,3 +1,9 @@
+## About
+A website to display and view beers from Punk AP (https://punkapi.com/)
+
+## Demo
+https://punk-api-one.vercel.app/
+
 ## Getting Started
 
 First, run the development server:
