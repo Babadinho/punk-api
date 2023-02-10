@@ -1,5 +1,5 @@
 ## About
-A website to display and view beers from Punk AP (https://punkapi.com/)
+A website to display and filter beers from Punk API (https://punkapi.com/)
 
 ## Demo
 https://punk-api-one.vercel.app/
